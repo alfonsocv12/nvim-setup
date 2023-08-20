@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/alfonso/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/Users/alfonso/.local/share/nvim/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/alfonso/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

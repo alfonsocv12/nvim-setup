@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
   use('tpope/vim-commentary')
   use('mbbill/undotree')
+  use('zbirenbaum/copilot.lua')
 
   use {
   	'VonHeikemen/lsp-zero.nvim',
