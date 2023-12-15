@@ -55,4 +55,12 @@ return require('packer').startup(function(use)
 	  },
   }
 
+  use {
+	  "nvim-neotest/neotest",
+	  requires = {
+		  "nvim-lua/plenary.nvim",
+		  "antoinemadec/FixCursorHold.nvim"
+	  }
+  }
+
 end)
