@@ -9,7 +9,12 @@ vim.keymap.set("n", "<D-q>", vim.cmd.qa)
 vim.o.clipboard = "unnamedplus"
 
 vim.api.nvim_set_keymap("n", "<D-]>", "<C-]>", { noremap = true })
-vim.api.nvim_set_keymap("n", '<A-w>', '<C-w>', { noremap = true })
+vim.api.nvim_set_keymap("n", '<D-w>', '<C-w>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<D-6>", "<C-^>", { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true})
+
+vim.on_key(function(key)
+	print("Key: ", key)
+end)
 
 vim.opt.number = true
