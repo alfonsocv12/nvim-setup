@@ -11,7 +11,7 @@ end)
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- confirm completion
-    ['<C-l>'] = cmp.mapping.confirm({select = true}),
+    ['<D-l>'] = cmp.mapping.confirm({select = true}),
   })
 })
 
