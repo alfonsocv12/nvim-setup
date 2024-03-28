@@ -1,3 +1,4 @@
+require('chato.os_detect')
 local builtin = require('telescope.builtin')
 local utils = require('telescope.utils')
 local telescope = require('telescope')
