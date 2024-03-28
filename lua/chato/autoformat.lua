@@ -13,11 +13,53 @@ local function auto_reload_buffer()
     ]], false)
 end
 
+Formatters = {}
+Formatters.__index = Formatters
+
+function Formatters:new()
+	local this = {
+		formatters = {
+			lua = {
+				file__name = true,
+				command = "lua-format -i",
+			},
+			py = {
+				file__name = true,
+				command = "autopep8 --in-place --aggressive ",
+			},
+			rs = {
+				file__name = false,
+				command = "cargo fmt ",
+			}
+		}
+	}
+
+	setmetatable(this, self)
+	return this
+end
+
+function Formatters:run(file_extension, filename)
+	local formatter = self.formatters[file_extension]
+
+	if formatter == nil then
+		return
+	end
+
+	local command = formatter.command
+
+	if formatter.file__name then
+		command = command .. filename
+	end
+
+	vim.api.nvim_command("! " .. command)
+	auto_reload_buffer()
+end
+
 local function get_formatters()
 	local formatters = {
 		lua = "lua-format -i",
 		py = "autopep8 --in-place --aggressive ",
-		rs = "cargo fmt",
+		rs = "cargo fmt ",
 	}
 
 	return formatters
@@ -26,11 +68,13 @@ end
 vim.keymap.set("n", "<leader>f", function()
 	local filename_path = vim.api.nvim_buf_get_name(0)
 	local extension = get_extension(filename_path)
-	local formatters = get_formatters()
 
-	if formatters[extension] ~= nil then
-		vim.api.nvim_command("! " .. formatters[extension] .. filename_path)
-		auto_reload_buffer()
+	if extension == nil then
+		return
 	end
+
+	local formatters = Formatters:new()
+
+	formatters:run(extension, filename_path)
 end, opts)
 
