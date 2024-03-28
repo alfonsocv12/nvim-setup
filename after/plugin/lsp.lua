@@ -1,3 +1,4 @@
+local lsp_zero = require('lsp-zero')
 local lsp = require('lsp-zero').preset({})
 local cmp = require('cmp')
 
@@ -13,6 +14,14 @@ cmp.setup({
     -- confirm completion
     ['<C-l>'] = cmp.mapping.confirm({select = true}),
   })
+})
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+  },
 })
 
 -- (Optional) Configure lua language server for neovim
