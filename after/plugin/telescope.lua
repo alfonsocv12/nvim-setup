@@ -1,3 +1,4 @@
+require('chato.os_detect')
 local builtin = require('telescope.builtin')
 local utils = require('telescope.utils')
 local telescope = require('telescope')
@@ -14,6 +15,7 @@ vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
+print(OS_NAME)
 if OS_NAME == "Darwin" then
     vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
     vim.keymap.set("n", '<C-p>', function()
