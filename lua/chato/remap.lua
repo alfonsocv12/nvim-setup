@@ -1,10 +1,32 @@
 vim.g.mapleader = " "
 
+-- Taps Support
 vim.keymap.set("n", string.format("<%s-t>", OS_CTRL_KEY), vim.cmd.vsp)
 vim.keymap.set("n", string.format("<%s-x>", OS_CTRL_KEY), vim.cmd.q)
 vim.keymap.set("n", string.format("<%s-s>", OS_CTRL_KEY), vim.cmd.w)
 vim.keymap.set("n", string.format("<%s-q>", OS_CTRL_KEY), vim.cmd.qa)
 
+<<<<<<< Updated upstream
+=======
+-- Move lines
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Search stay center
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- Paste keep yank
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- Delete to void
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
+
+-- Find and replace selacted word
+vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<left><left><left><left>")
+
+>>>>>>> Stashed changes
 if OS_NAME == "Darwin" then
     vim.keymap.set("n", "<leader>pt", vim.cmd.NvimTreeToggle)
 elseif OS_NAME == "Linux" then
