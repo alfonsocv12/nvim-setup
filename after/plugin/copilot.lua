@@ -1,3 +1,5 @@
+require('chato.os_detect')
+
 require('copilot').setup({
   panel = {
     enabled = true,
