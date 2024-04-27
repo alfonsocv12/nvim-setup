@@ -10,4 +10,6 @@ function os.capture(cmd, raw)
 end
 
 OS_NAME = os.capture("uname")
+
 OS_CTRL_KEY = OS_NAME == "Linux" and "D" or "C"
+OS_SUPER_KEY = OS_NAME == "Linux" and "C" or "D"
