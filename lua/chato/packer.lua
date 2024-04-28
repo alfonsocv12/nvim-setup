@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('zbirenbaum/copilot.lua')
   use('tpope/vim-fugitive')
+  use('natecraddock/workspaces.nvim')
 
   use {
   	'VonHeikemen/lsp-zero.nvim',
