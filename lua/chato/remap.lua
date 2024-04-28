@@ -5,6 +5,7 @@ vim.keymap.set("n", string.format("<%s-t>", OS_CTRL_KEY), vim.cmd.vsp)
 vim.keymap.set("n", string.format("<%s-x>", OS_CTRL_KEY), vim.cmd.q)
 vim.keymap.set("n", string.format("<%s-s>", OS_CTRL_KEY), vim.cmd.w)
 vim.keymap.set("n", string.format("<%s-q>", OS_CTRL_KEY), vim.cmd.qa)
+vim.keymap.set("n", "<C-t>", vim.cmd.vsp)
 
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
