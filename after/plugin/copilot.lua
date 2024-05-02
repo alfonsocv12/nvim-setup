@@ -21,7 +21,7 @@ require('copilot').setup({
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = string.format("<%s-l>", OS_SUPER_KEY),
+      accept = "<C-l>",
       accept_word = false,
       accept_line = false,
       next = "<C-j>",
