@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- Taps Support
+-- Panes Support
 vim.keymap.set("n", string.format("<%s-t>", OS_CTRL_KEY), vim.cmd.vsp)
 vim.keymap.set("n", string.format("<%s-x>", OS_CTRL_KEY), vim.cmd.q)
 vim.keymap.set("n", string.format("<%s-s>", OS_CTRL_KEY), vim.cmd.w)
@@ -36,7 +36,6 @@ if OS_NAME == "Linux" then
     vim.api.nvim_set_keymap("n", "<D-]>", "<C-]>", { noremap = true })
     vim.api.nvim_set_keymap("n", '<D-w>', '<C-w>', { noremap = true })
     vim.api.nvim_set_keymap("n", "<D-6>", "<C-^>", { noremap = true })
-    vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true})
 end
 
 -- Copy to clipboard
