@@ -8,12 +8,12 @@ telescope.setup {
 		find_files = {
 			hidden = true,
 		}
-	},
+	}
 }
 
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>ps', function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") });
+     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 vim.keymap.set("n", string.format('<%s-p>', OS_CTRL_KEY), function()
     local _, ret, _ = utils.get_os_command_output({'git', 'rev-parse', '--is-inside-work-tree' })

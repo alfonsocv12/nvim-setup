@@ -29,10 +29,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Find and replace selacted word
 vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<left><left><left><left>")
 
-if OS_NAME == "Darwin" then
-    vim.keymap.set("n", "<leader>pt", vim.cmd.NvimTreeToggle)
-elseif OS_NAME == "Linux" then
-    vim.keymap.set("n", "<C-\\>", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<C-\\>", vim.cmd.NvimTreeToggle)
+if OS_NAME == "Linux" then
     -- vim.keymap.set("n", "<A-t>", vim.cmd.vsp)
 
     vim.api.nvim_set_keymap("n", "<D-]>", "<C-]>", { noremap = true })
