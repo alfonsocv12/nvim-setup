@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use('zbirenbaum/copilot.lua')
   use('tpope/vim-fugitive')
   use('natecraddock/workspaces.nvim')
+  use('rosstang/lunajson.nvim')
 
   use {
   	'VonHeikemen/lsp-zero.nvim',
