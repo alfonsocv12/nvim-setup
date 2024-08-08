@@ -31,6 +31,13 @@ return require('packer').startup(function(use)
   use('rosstang/lunajson.nvim')
 
   use {
+    'nvimtools/none-ls.nvim',
+    requires = {
+        {'nvimtools/none-ls-extras.nvim'}
+    }
+  }
+
+  use {
   	'VonHeikemen/lsp-zero.nvim',
   	branch = 'v2.x',
   	requires = {

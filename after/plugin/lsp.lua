@@ -16,7 +16,7 @@ end)
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     -- confirm completion
-    [string.format("<%s-l>", OS_SUPER_KEY)] = cmp.mapping.confirm({select = true}),
+    ["<C-l>"] = cmp.mapping.confirm({select = true}),
   })
 })
 
