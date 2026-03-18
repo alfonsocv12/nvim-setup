@@ -20,8 +20,15 @@ return require('packer').startup(function(use)
 		vim.cmd('colorscheme onedark')
 	end
   })
-
-  use('nvim-treesitter/nvim-treesitter', {run = 'TSUpdate'})
+ 
+  use {
+      "nvim-treesitter/nvim-treesitter",
+      tag = "v0.10.0",
+      run = function()
+          require("nvim-treesitter.install").update({ with_sync = true })
+      end
+  }
+  -- use('nvim-treesitter/nvim-treesitter', {run = 'TSUpdate'})
   use('nvim-treesitter/playground')
   use('tpope/vim-commentary')
   use('mbbill/undotree')
@@ -39,7 +46,7 @@ return require('packer').startup(function(use)
 
   use {
   	'VonHeikemen/lsp-zero.nvim',
-  	branch = 'v2.x',
+  	branch = 'v4.x',
   	requires = {
     		-- LSP Support
     		{'neovim/nvim-lspconfig'},             -- Required

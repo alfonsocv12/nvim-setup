@@ -1,34 +1,28 @@
 local lsp_zero = require('lsp-zero')
-local lsp = require('lsp-zero').preset({})
 local cmp = require('cmp')
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false}
+-- on_attach is now a standalone function
+lsp_zero.on_attach(function(client, bufnr)
+  local opts = { buffer = bufnr, remap = false }
 
-  lsp.default_keymaps({
-	  buffer = bufnr,
-	  preserve_mappings = false
-  })
+  lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = false })
 
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
 end)
 
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    -- confirm completion
-    ["<C-l>"] = cmp.mapping.confirm({select = true}),
-  })
-})
-
+-- Setup mason
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {},
   handlers = {
-    lsp_zero.default_setup,
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
   },
 })
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.setup()
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ["<C-l>"] = cmp.mapping.confirm({ select = true }),
+  })
+})
