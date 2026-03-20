@@ -1,0 +1,3 @@
+[submodule "hyprland/third_party/rofi/rofi"]
+	path = hyprland/third_party/rofi/rofi
+	url = https://github.com/davatorium/rofi.git

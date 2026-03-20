@@ -1,0 +1,16 @@
+meson
+ninja
+clang
+pkg-config
+flex
+bison
+check
+libglib2.0-dev
+cmake
+libcairo2-dev
+libpango1.0-dev
+libxkbcommon-dev
+libgdk-pixbuf-2.0-dev
+pandoc
+doxygen
+cppcheck
